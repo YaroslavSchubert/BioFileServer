@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "empty.proto";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "RTG";
+
+package Services;
+
+service BioFileServer
+{      	
+  rpc Heartbeat    ( google.protobuf.Empty ) returns ( google.protobuf.Empty  ) {}
+  rpc SayHello     ( HelloRequest )          returns ( HelloReply ) {}
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}

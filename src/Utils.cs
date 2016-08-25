@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace BioFileServer
+namespace Bioskynet
 {
     class Utils
     {
