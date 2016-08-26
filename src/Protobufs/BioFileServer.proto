@@ -5,9 +5,9 @@ import "empty.proto";
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
 
-package Services;
+package Bioskynet.Services;
 
-service BioFileServer
+service FileServer
 {      	
   rpc Heartbeat    ( google.protobuf.Empty ) returns ( google.protobuf.Empty  ) {}
   rpc SayHello     ( HelloRequest )          returns ( HelloReply ) {}
