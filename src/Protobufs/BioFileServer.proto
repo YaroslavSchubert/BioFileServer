@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "empty.proto";
-
 option java_package = "ex.grpc";
 option objc_class_prefix = "RTG";
 
@@ -9,13 +7,13 @@ package Bioskynet.Services;
 
 service FileServer
 {      	
-  rpc Heartbeat    ( google.protobuf.Empty ) returns ( google.protobuf.Empty  ) {}
+  rpc Heartbeat    ( EmptyMessage ) returns ( EmptyMessage  ) {}
   rpc SayHello     ( HelloRequest )          returns ( HelloReply ) {}
 
 
   rpc GetFile( FileMessage ) returns ( FileBytes ) {}
   rpc CreateFile( FileBytes ) returns ( FileMessage ) {}
-  rpc DeleteFile( FileMessage ) returns ( google.protobuf.Empty ) {}
+  rpc DeleteFile( FileMessage ) returns ( EmptyMessage ) {}
 }
 
 message FileMessage{
@@ -32,4 +30,8 @@ message HelloRequest {
 
 message HelloReply {
   string message = 1;
+}
+
+message EmptyMessage{
+
 }

@@ -22,26 +22,28 @@ namespace Bioskynet.Services {
     static BioFileServerReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChNCaW9GaWxlU2VydmVyLnByb3RvEhJCaW9za3luZXQuU2VydmljZXMaC2Vt",
-            "cHR5LnByb3RvIhkKC0ZpbGVNZXNzYWdlEgoKAmlkGAEgASgJIhkKCUZpbGVC",
-            "eXRlcxIMCgRkYXRhGAEgASgMIhwKDEhlbGxvUmVxdWVzdBIMCgRuYW1lGAEg",
-            "ASgJIh0KCkhlbGxvUmVwbHkSDwoHbWVzc2FnZRgBIAEoCTKBAwoKRmlsZVNl",
-            "cnZlchI9CglIZWFydGJlYXQSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaFi5n",
-            "b29nbGUucHJvdG9idWYuRW1wdHkiABJOCghTYXlIZWxsbxIgLkJpb3NreW5l",
-            "dC5TZXJ2aWNlcy5IZWxsb1JlcXVlc3QaHi5CaW9za3luZXQuU2VydmljZXMu",
-            "SGVsbG9SZXBseSIAEksKB0dldEZpbGUSHy5CaW9za3luZXQuU2VydmljZXMu",
-            "RmlsZU1lc3NhZ2UaHS5CaW9za3luZXQuU2VydmljZXMuRmlsZUJ5dGVzIgAS",
-            "TgoKQ3JlYXRlRmlsZRIdLkJpb3NreW5ldC5TZXJ2aWNlcy5GaWxlQnl0ZXMa",
-            "Hy5CaW9za3luZXQuU2VydmljZXMuRmlsZU1lc3NhZ2UiABJHCgpEZWxldGVG",
-            "aWxlEh8uQmlvc2t5bmV0LlNlcnZpY2VzLkZpbGVNZXNzYWdlGhYuZ29vZ2xl",
-            "LnByb3RvYnVmLkVtcHR5IgBCDwoHZXguZ3JwY6ICA1JUR2IGcHJvdG8z"));
+            "ChNCaW9GaWxlU2VydmVyLnByb3RvEhJCaW9za3luZXQuU2VydmljZXMiGQoL",
+            "RmlsZU1lc3NhZ2USCgoCaWQYASABKAkiGQoJRmlsZUJ5dGVzEgwKBGRhdGEY",
+            "ASABKAwiHAoMSGVsbG9SZXF1ZXN0EgwKBG5hbWUYASABKAkiHQoKSGVsbG9S",
+            "ZXBseRIPCgdtZXNzYWdlGAEgASgJIg4KDEVtcHR5TWVzc2FnZTKfAwoKRmls",
+            "ZVNlcnZlchJRCglIZWFydGJlYXQSIC5CaW9za3luZXQuU2VydmljZXMuRW1w",
+            "dHlNZXNzYWdlGiAuQmlvc2t5bmV0LlNlcnZpY2VzLkVtcHR5TWVzc2FnZSIA",
+            "Ek4KCFNheUhlbGxvEiAuQmlvc2t5bmV0LlNlcnZpY2VzLkhlbGxvUmVxdWVz",
+            "dBoeLkJpb3NreW5ldC5TZXJ2aWNlcy5IZWxsb1JlcGx5IgASSwoHR2V0Rmls",
+            "ZRIfLkJpb3NreW5ldC5TZXJ2aWNlcy5GaWxlTWVzc2FnZRodLkJpb3NreW5l",
+            "dC5TZXJ2aWNlcy5GaWxlQnl0ZXMiABJOCgpDcmVhdGVGaWxlEh0uQmlvc2t5",
+            "bmV0LlNlcnZpY2VzLkZpbGVCeXRlcxofLkJpb3NreW5ldC5TZXJ2aWNlcy5G",
+            "aWxlTWVzc2FnZSIAElEKCkRlbGV0ZUZpbGUSHy5CaW9za3luZXQuU2Vydmlj",
+            "ZXMuRmlsZU1lc3NhZ2UaIC5CaW9za3luZXQuU2VydmljZXMuRW1wdHlNZXNz",
+            "YWdlIgBCDwoHZXguZ3JwY6ICA1JUR2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
+          new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.FileMessage), global::Bioskynet.Services.FileMessage.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.FileBytes), global::Bioskynet.Services.FileBytes.Parser, new[]{ "Data" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.HelloRequest), global::Bioskynet.Services.HelloRequest.Parser, new[]{ "Name" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.HelloReply), global::Bioskynet.Services.HelloReply.Parser, new[]{ "Message" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.HelloReply), global::Bioskynet.Services.HelloReply.Parser, new[]{ "Message" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.EmptyMessage), global::Bioskynet.Services.EmptyMessage.Parser, null, null, null, null)
           }));
     }
     #endregion
@@ -510,6 +512,95 @@ namespace Bioskynet.Services {
             Message = input.ReadString();
             break;
           }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class EmptyMessage : pb::IMessage<EmptyMessage> {
+    private static readonly pb::MessageParser<EmptyMessage> _parser = new pb::MessageParser<EmptyMessage>(() => new EmptyMessage());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<EmptyMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Bioskynet.Services.BioFileServerReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public EmptyMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public EmptyMessage(EmptyMessage other) : this() {
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public EmptyMessage Clone() {
+      return new EmptyMessage(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as EmptyMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(EmptyMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(EmptyMessage other) {
+      if (other == null) {
+        return;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
         }
       }
     }
