@@ -11,6 +11,19 @@ service FileServer
 {      	
   rpc Heartbeat    ( google.protobuf.Empty ) returns ( google.protobuf.Empty  ) {}
   rpc SayHello     ( HelloRequest )          returns ( HelloReply ) {}
+
+
+  rpc GetFile( FileMessage ) returns ( FileBytes ) {}
+  rpc CreateFile( FileBytes ) returns ( FileMessage ) {}
+  rpc DeleteFile( FileMessage ) returns ( google.protobuf.Empty ) {}
+}
+
+message FileMessage{
+  string id = 1;
+}
+
+message FileBytes{
+  bytes data = 1;
 }
 
 message HelloRequest {

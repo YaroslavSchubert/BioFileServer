@@ -4,7 +4,7 @@ using Grpc.Core;
 using Bioskynet.Services;
 
 namespace Bioskynet.Services{
-    class FileService : Services.BioFileServer.BioFileServerBase{
+    class FileService : FileServer.FileServerBase{
         public override Task<Empty> Heartbeat(Empty request, ServerCallContext context)
         {
             return Task.FromResult(request);

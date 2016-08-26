@@ -10,7 +10,7 @@ namespace Bioskynet.SimpleClient
         {
             Channel channel = new Channel("127.0.0.1:12337", ChannelCredentials.Insecure);
 
-            var client = new BioFileServer.BioFileServerClient(channel);
+            var client = new FileServer.FileServerClient(channel);
             String user = "Bruce";
 
             var reply = client.SayHello(new HelloRequest { Name = user });

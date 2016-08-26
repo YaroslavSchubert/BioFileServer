@@ -13,7 +13,7 @@ namespace Bioskynet.Services
         {
             _server = new Server
             {
-                Services = { BioFileServer.BindService(new FileService()) },
+                Services = { FileServer.BindService(new FileService()) },
                 Ports = { new ServerPort("localhost", 12337, ServerCredentials.Insecure) }
             };
             _server.Start();

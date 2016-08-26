@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 using Grpc.Core;
 
 namespace Bioskynet.Services {
-  public static class BioFileServer
+  public static class FileServer
   {
-    static readonly string __ServiceName = "Bioskynet.Services.BioFileServer";
+    static readonly string __ServiceName = "Bioskynet.Services.FileServer";
 
     static readonly Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_Empty = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
     static readonly Marshaller<global::Bioskynet.Services.HelloRequest> __Marshaller_HelloRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Bioskynet.Services.HelloRequest.Parser.ParseFrom);
     static readonly Marshaller<global::Bioskynet.Services.HelloReply> __Marshaller_HelloReply = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Bioskynet.Services.HelloReply.Parser.ParseFrom);
+    static readonly Marshaller<global::Bioskynet.Services.FileMessage> __Marshaller_FileMessage = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Bioskynet.Services.FileMessage.Parser.ParseFrom);
+    static readonly Marshaller<global::Bioskynet.Services.FileBytes> __Marshaller_FileBytes = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Bioskynet.Services.FileBytes.Parser.ParseFrom);
 
     static readonly Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Google.Protobuf.WellKnownTypes.Empty> __Method_Heartbeat = new Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Google.Protobuf.WellKnownTypes.Empty>(
         MethodType.Unary,
@@ -30,14 +32,35 @@ namespace Bioskynet.Services {
         __Marshaller_HelloRequest,
         __Marshaller_HelloReply);
 
+    static readonly Method<global::Bioskynet.Services.FileMessage, global::Bioskynet.Services.FileBytes> __Method_GetFile = new Method<global::Bioskynet.Services.FileMessage, global::Bioskynet.Services.FileBytes>(
+        MethodType.Unary,
+        __ServiceName,
+        "GetFile",
+        __Marshaller_FileMessage,
+        __Marshaller_FileBytes);
+
+    static readonly Method<global::Bioskynet.Services.FileBytes, global::Bioskynet.Services.FileMessage> __Method_CreateFile = new Method<global::Bioskynet.Services.FileBytes, global::Bioskynet.Services.FileMessage>(
+        MethodType.Unary,
+        __ServiceName,
+        "CreateFile",
+        __Marshaller_FileBytes,
+        __Marshaller_FileMessage);
+
+    static readonly Method<global::Bioskynet.Services.FileMessage, global::Google.Protobuf.WellKnownTypes.Empty> __Method_DeleteFile = new Method<global::Bioskynet.Services.FileMessage, global::Google.Protobuf.WellKnownTypes.Empty>(
+        MethodType.Unary,
+        __ServiceName,
+        "DeleteFile",
+        __Marshaller_FileMessage,
+        __Marshaller_Empty);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
       get { return global::Bioskynet.Services.BioFileServerReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Base class for server-side implementations of BioFileServer</summary>
-    public abstract class BioFileServerBase
+    /// <summary>Base class for server-side implementations of FileServer</summary>
+    public abstract class FileServerBase
     {
       public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> Heartbeat(global::Google.Protobuf.WellKnownTypes.Empty request, ServerCallContext context)
       {
@@ -49,28 +72,43 @@ namespace Bioskynet.Services {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task<global::Bioskynet.Services.FileBytes> GetFile(global::Bioskynet.Services.FileMessage request, ServerCallContext context)
+      {
+        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Bioskynet.Services.FileMessage> CreateFile(global::Bioskynet.Services.FileBytes request, ServerCallContext context)
+      {
+        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> DeleteFile(global::Bioskynet.Services.FileMessage request, ServerCallContext context)
+      {
+        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+      }
+
     }
 
-    /// <summary>Client for BioFileServer</summary>
-    public class BioFileServerClient : ClientBase<BioFileServerClient>
+    /// <summary>Client for FileServer</summary>
+    public class FileServerClient : ClientBase<FileServerClient>
     {
-      /// <summary>Creates a new client for BioFileServer</summary>
+      /// <summary>Creates a new client for FileServer</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public BioFileServerClient(Channel channel) : base(channel)
+      public FileServerClient(Channel channel) : base(channel)
       {
       }
-      /// <summary>Creates a new client for BioFileServer that uses a custom <c>CallInvoker</c>.</summary>
+      /// <summary>Creates a new client for FileServer that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
-      public BioFileServerClient(CallInvoker callInvoker) : base(callInvoker)
+      public FileServerClient(CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
-      protected BioFileServerClient() : base()
+      protected FileServerClient() : base()
       {
       }
       /// <summary>Protected constructor to allow creation of configured clients.</summary>
       /// <param name="configuration">The client configuration.</param>
-      protected BioFileServerClient(ClientBaseConfiguration configuration) : base(configuration)
+      protected FileServerClient(ClientBaseConfiguration configuration) : base(configuration)
       {
       }
 
@@ -106,18 +144,69 @@ namespace Bioskynet.Services {
       {
         return CallInvoker.AsyncUnaryCall(__Method_SayHello, null, options, request);
       }
-      protected override BioFileServerClient NewInstance(ClientBaseConfiguration configuration)
+      public virtual global::Bioskynet.Services.FileBytes GetFile(global::Bioskynet.Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return new BioFileServerClient(configuration);
+        return GetFile(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Bioskynet.Services.FileBytes GetFile(global::Bioskynet.Services.FileMessage request, CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetFile, null, options, request);
+      }
+      public virtual AsyncUnaryCall<global::Bioskynet.Services.FileBytes> GetFileAsync(global::Bioskynet.Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return GetFileAsync(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual AsyncUnaryCall<global::Bioskynet.Services.FileBytes> GetFileAsync(global::Bioskynet.Services.FileMessage request, CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetFile, null, options, request);
+      }
+      public virtual global::Bioskynet.Services.FileMessage CreateFile(global::Bioskynet.Services.FileBytes request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return CreateFile(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Bioskynet.Services.FileMessage CreateFile(global::Bioskynet.Services.FileBytes request, CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_CreateFile, null, options, request);
+      }
+      public virtual AsyncUnaryCall<global::Bioskynet.Services.FileMessage> CreateFileAsync(global::Bioskynet.Services.FileBytes request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return CreateFileAsync(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual AsyncUnaryCall<global::Bioskynet.Services.FileMessage> CreateFileAsync(global::Bioskynet.Services.FileBytes request, CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_CreateFile, null, options, request);
+      }
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty DeleteFile(global::Bioskynet.Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return DeleteFile(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty DeleteFile(global::Bioskynet.Services.FileMessage request, CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_DeleteFile, null, options, request);
+      }
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteFileAsync(global::Bioskynet.Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return DeleteFileAsync(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteFileAsync(global::Bioskynet.Services.FileMessage request, CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_DeleteFile, null, options, request);
+      }
+      protected override FileServerClient NewInstance(ClientBaseConfiguration configuration)
+      {
+        return new FileServerClient(configuration);
       }
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
-    public static ServerServiceDefinition BindService(BioFileServerBase serviceImpl)
+    public static ServerServiceDefinition BindService(FileServerBase serviceImpl)
     {
       return ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_Heartbeat, serviceImpl.Heartbeat)
-          .AddMethod(__Method_SayHello, serviceImpl.SayHello).Build();
+          .AddMethod(__Method_SayHello, serviceImpl.SayHello)
+          .AddMethod(__Method_GetFile, serviceImpl.GetFile)
+          .AddMethod(__Method_CreateFile, serviceImpl.CreateFile)
+          .AddMethod(__Method_DeleteFile, serviceImpl.DeleteFile).Build();
     }
 
   }
