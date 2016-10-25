@@ -13,8 +13,8 @@ namespace Bioskynet.Services
         {
             _server = new Server
             {
-                Services = { FileServer.BindService(new FileService()) },
-                Ports = { new ServerPort("localhost", 12337, ServerCredentials.Insecure) }
+                Services = { FileService.BindService(new FileServer()) },
+                Ports = { new ServerPort("0.0.0.0", 12337, ServerCredentials.Insecure) }
             };
             _server.Start();
             Console.WriteLine("FileService started...");

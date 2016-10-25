@@ -8,7 +8,7 @@ using Bioskynet.Services;
 
 namespace Bioskynet.Services
 {
-    class FileService : FileServer.FileServerBase
+    class FileServer : FileService.FileServiceBase
     {
         public override Task<EmptyMessage> Heartbeat(EmptyMessage request, ServerCallContext context) => Task.FromResult(request);
         public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
