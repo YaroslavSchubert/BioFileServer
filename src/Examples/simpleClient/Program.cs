@@ -8,12 +8,18 @@ namespace Bioskynet.SimpleClient
 {
     public class Program
     {
+        // string ServiceAddress = "192.168.1.59"
+        static string ServiceAddress = "localhost";
+        static string ServicePort = "65000";
+
         public static void Main(string[] args)
         {
-            Channel channel = new Channel("127.0.0.1:12337", ChannelCredentials.Insecure);
-
+            Channel channel = new Channel($"{ServiceAddress}:{ServicePort}", ChannelCredentials.Insecure);
             var client = new FileService.FileServiceClient(channel);
             String user = "Bruce";
+
+            Console.WriteLine($"SimpleClient connected to file service at {ServiceAddress}:{ServicePort}");
+
 
             var reply = client.SayHello(new HelloRequest { Name = user });
             Console.WriteLine("Greeting: " + reply.Message);

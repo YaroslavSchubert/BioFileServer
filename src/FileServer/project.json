@@ -2,6 +2,7 @@
     "title": "BioFileServer",
     "version": "1.0.0-*",
     "buildOptions": {
+        "platform": "x86",
         "emitEntryPoint": true,
         "debugType": "portable"
     },

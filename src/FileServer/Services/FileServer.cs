@@ -1,10 +1,8 @@
 using System.Threading.Tasks;
-using Google.Protobuf.WellKnownTypes;
 using Google.Protobuf;
 using Grpc.Core;
-using System.IO;
 using System;
-using Bioskynet.Services;
+using System.IO;
 
 namespace Bioskynet.Services
 {
@@ -27,10 +25,18 @@ namespace Bioskynet.Services
         }
         public override Task<FileBytes> GetFile(FileMessage file, ServerCallContext context)
         {
+            //TODO Lock file
             Guid temp;
-            if(!Guid.TryParse(file.Id, out temp))
-                throw new FormatException("File ID is invalid");
-            var filePath = Utils.GetFilePath(file.Id);            
+            if (!Guid.TryParse(file.Id, out temp))
+            {               
+                throw new RpcException(new Status(StatusCode.InvalidArgument,"File ID is invalid"));
+            }
+            var filePath = Utils.GetFilePathById(file.Id);
+
+            if(!File.Exists(filePath)){
+                throw new RpcException(new Status(StatusCode.NotFound, "File doesn't exist"));
+            }
+
             var fileBytes = new FileBytes()
             {
                 Data = ByteString.CopyFrom(Utils.ReadFile(filePath))
@@ -39,7 +45,7 @@ namespace Bioskynet.Services
         }
         public override Task<EmptyMessage> DeleteFile(FileMessage file, ServerCallContext context)
         {
-            Utils.DeleteFile(Utils.GetFilePath(file.Id));
+            Utils.DeleteFile(Utils.GetFilePathById(file.Id));
             return Task.FromResult(new EmptyMessage());
         }
     }

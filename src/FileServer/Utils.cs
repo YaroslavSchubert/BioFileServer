@@ -31,18 +31,26 @@ namespace Bioskynet
 
         public static string[] GenerateFilePathAndGuid()
         {
-            var fileName = Guid.NewGuid().ToString();
-            var filePath = GetFilePath(fileName);
-            if (File.Exists(filePath))
-                throw new Exception("File already exists");
+            string fileName;
+            string filePath;
+            while (true)
+            {
+                fileName = Guid.NewGuid().ToString();
+                filePath = GetFilePathById(fileName);
+                if (!File.Exists(filePath)){
+                    using(File.Create(filePath));
+                    break;
+                }
+            }
             return new[] { filePath, fileName };
         }
 
-        public static string GetFilePath(string fileId)
+        public static string GetFilePathById(string fileId)
         {
             var currentDir = Directory.GetCurrentDirectory();
             var dirPath = Path.Combine(currentDir, "files");
-            Directory.CreateDirectory(dirPath);
+            if (!Directory.Exists(dirPath))
+                Directory.CreateDirectory(dirPath);
             return System.IO.Path.Combine(dirPath, fileId);
         }
 
