@@ -33,8 +33,14 @@ namespace Bioskynet.SimpleClient
             var fileBytes = client.GetFile(fileResult);
             Console.WriteLine($"File received. File bytes: {fileBytes}");
 
+            var exists = client.FileExists(fileResult);
+            Console.WriteLine($"File {fileResult.Id} exists: {exists.Result}");
+
             client.DeleteFile(fileResult);
             Console.WriteLine($"File {fileResult.Id} deleted");
+
+            exists = client.FileExists(fileResult);
+            Console.WriteLine($"File {fileResult.Id} exists: {exists.Result}");            
 
             channel.ShutdownAsync().Wait();
             Console.WriteLine("Press any key to exit...");

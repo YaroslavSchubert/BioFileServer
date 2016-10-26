@@ -27,16 +27,19 @@ namespace Bioskynet.Services {
             "aWNlcyIZCgtGaWxlTWVzc2FnZRIKCgJpZBgBIAEoCSIZCglGaWxlQnl0ZXMS",
             "DAoEZGF0YRgBIAEoDCIcCgxIZWxsb1JlcXVlc3QSDAoEbmFtZRgBIAEoCSId",
             "CgpIZWxsb1JlcGx5Eg8KB21lc3NhZ2UYASABKAkiDgoMRW1wdHlNZXNzYWdl",
-            "MqADCgtGaWxlU2VydmljZRJRCglIZWFydGJlYXQSIC5CaW9za3luZXQuU2Vy",
-            "dmljZXMuRW1wdHlNZXNzYWdlGiAuQmlvc2t5bmV0LlNlcnZpY2VzLkVtcHR5",
-            "TWVzc2FnZSIAEk4KCFNheUhlbGxvEiAuQmlvc2t5bmV0LlNlcnZpY2VzLkhl",
-            "bGxvUmVxdWVzdBoeLkJpb3NreW5ldC5TZXJ2aWNlcy5IZWxsb1JlcGx5IgAS",
-            "SwoHR2V0RmlsZRIfLkJpb3NreW5ldC5TZXJ2aWNlcy5GaWxlTWVzc2FnZRod",
-            "LkJpb3NreW5ldC5TZXJ2aWNlcy5GaWxlQnl0ZXMiABJOCgpDcmVhdGVGaWxl",
-            "Eh0uQmlvc2t5bmV0LlNlcnZpY2VzLkZpbGVCeXRlcxofLkJpb3NreW5ldC5T",
-            "ZXJ2aWNlcy5GaWxlTWVzc2FnZSIAElEKCkRlbGV0ZUZpbGUSHy5CaW9za3lu",
-            "ZXQuU2VydmljZXMuRmlsZU1lc3NhZ2UaIC5CaW9za3luZXQuU2VydmljZXMu",
-            "RW1wdHlNZXNzYWdlIgBCDwoHZXguZ3JwY6ICA1JUR2IGcHJvdG8z"));
+            "Ih4KDEV4aXN0TWVzc2FnZRIOCgZyZXN1bHQYASABKAgy8wMKC0ZpbGVTZXJ2",
+            "aWNlElEKCUhlYXJ0YmVhdBIgLkJpb3NreW5ldC5TZXJ2aWNlcy5FbXB0eU1l",
+            "c3NhZ2UaIC5CaW9za3luZXQuU2VydmljZXMuRW1wdHlNZXNzYWdlIgASTgoI",
+            "U2F5SGVsbG8SIC5CaW9za3luZXQuU2VydmljZXMuSGVsbG9SZXF1ZXN0Gh4u",
+            "Qmlvc2t5bmV0LlNlcnZpY2VzLkhlbGxvUmVwbHkiABJLCgdHZXRGaWxlEh8u",
+            "Qmlvc2t5bmV0LlNlcnZpY2VzLkZpbGVNZXNzYWdlGh0uQmlvc2t5bmV0LlNl",
+            "cnZpY2VzLkZpbGVCeXRlcyIAEk4KCkNyZWF0ZUZpbGUSHS5CaW9za3luZXQu",
+            "U2VydmljZXMuRmlsZUJ5dGVzGh8uQmlvc2t5bmV0LlNlcnZpY2VzLkZpbGVN",
+            "ZXNzYWdlIgASUQoKRGVsZXRlRmlsZRIfLkJpb3NreW5ldC5TZXJ2aWNlcy5G",
+            "aWxlTWVzc2FnZRogLkJpb3NreW5ldC5TZXJ2aWNlcy5FbXB0eU1lc3NhZ2Ui",
+            "ABJRCgpGaWxlRXhpc3RzEh8uQmlvc2t5bmV0LlNlcnZpY2VzLkZpbGVNZXNz",
+            "YWdlGiAuQmlvc2t5bmV0LlNlcnZpY2VzLkV4aXN0TWVzc2FnZSIAQg8KB2V4",
+            "LmdycGOiAgNSVEdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -44,7 +47,8 @@ namespace Bioskynet.Services {
             new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.FileBytes), global::Bioskynet.Services.FileBytes.Parser, new[]{ "Data" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.HelloRequest), global::Bioskynet.Services.HelloRequest.Parser, new[]{ "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.HelloReply), global::Bioskynet.Services.HelloReply.Parser, new[]{ "Message" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.EmptyMessage), global::Bioskynet.Services.EmptyMessage.Parser, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.EmptyMessage), global::Bioskynet.Services.EmptyMessage.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.ExistMessage), global::Bioskynet.Services.ExistMessage.Parser, new[]{ "Result" }, null, null, null)
           }));
     }
     #endregion
@@ -533,6 +537,109 @@ namespace Bioskynet.Services {
           default:
             input.SkipLastField();
             break;
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class ExistMessage : pb::IMessage<ExistMessage> {
+    private static readonly pb::MessageParser<ExistMessage> _parser = new pb::MessageParser<ExistMessage>(() => new ExistMessage());
+    public static pb::MessageParser<ExistMessage> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Bioskynet.Services.FileServiceReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public ExistMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public ExistMessage(ExistMessage other) : this() {
+      result_ = other.result_;
+    }
+
+    public ExistMessage Clone() {
+      return new ExistMessage(this);
+    }
+
+    /// <summary>Field number for the "result" field.</summary>
+    public const int ResultFieldNumber = 1;
+    private bool result_;
+    public bool Result {
+      get { return result_; }
+      set {
+        result_ = value;
+      }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as ExistMessage);
+    }
+
+    public bool Equals(ExistMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Result != other.Result) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Result != false) hash ^= Result.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Result != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Result);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (Result != false) {
+        size += 1 + 1;
+      }
+      return size;
+    }
+
+    public void MergeFrom(ExistMessage other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Result != false) {
+        Result = other.Result;
+      }
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Result = input.ReadBool();
+            break;
+          }
         }
       }
     }

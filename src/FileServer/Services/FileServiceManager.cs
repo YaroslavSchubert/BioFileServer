@@ -1,5 +1,4 @@
 using Grpc.Core;
-using Bioskynet.Services;
 using System;
 
 namespace Bioskynet.Services

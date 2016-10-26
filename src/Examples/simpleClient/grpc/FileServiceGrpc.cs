@@ -17,6 +17,7 @@ namespace Bioskynet.Services {
     static readonly Marshaller<global::Bioskynet.Services.HelloReply> __Marshaller_HelloReply = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Bioskynet.Services.HelloReply.Parser.ParseFrom);
     static readonly Marshaller<global::Bioskynet.Services.FileMessage> __Marshaller_FileMessage = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Bioskynet.Services.FileMessage.Parser.ParseFrom);
     static readonly Marshaller<global::Bioskynet.Services.FileBytes> __Marshaller_FileBytes = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Bioskynet.Services.FileBytes.Parser.ParseFrom);
+    static readonly Marshaller<global::Bioskynet.Services.ExistMessage> __Marshaller_ExistMessage = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Bioskynet.Services.ExistMessage.Parser.ParseFrom);
 
     static readonly Method<global::Bioskynet.Services.EmptyMessage, global::Bioskynet.Services.EmptyMessage> __Method_Heartbeat = new Method<global::Bioskynet.Services.EmptyMessage, global::Bioskynet.Services.EmptyMessage>(
         MethodType.Unary,
@@ -53,6 +54,13 @@ namespace Bioskynet.Services {
         __Marshaller_FileMessage,
         __Marshaller_EmptyMessage);
 
+    static readonly Method<global::Bioskynet.Services.FileMessage, global::Bioskynet.Services.ExistMessage> __Method_FileExists = new Method<global::Bioskynet.Services.FileMessage, global::Bioskynet.Services.ExistMessage>(
+        MethodType.Unary,
+        __ServiceName,
+        "FileExists",
+        __Marshaller_FileMessage,
+        __Marshaller_ExistMessage);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -75,9 +83,6 @@ namespace Bioskynet.Services {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      /// <summary>
-      ///  option (google.api.http).get = "/v1/files/{id}";
-      /// </summary>
       public virtual global::System.Threading.Tasks.Task<global::Bioskynet.Services.FileBytes> GetFile(global::Bioskynet.Services.FileMessage request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
@@ -89,6 +94,11 @@ namespace Bioskynet.Services {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Bioskynet.Services.EmptyMessage> DeleteFile(global::Bioskynet.Services.FileMessage request, ServerCallContext context)
+      {
+        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Bioskynet.Services.ExistMessage> FileExists(global::Bioskynet.Services.FileMessage request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
@@ -162,30 +172,18 @@ namespace Bioskynet.Services {
       {
         return CallInvoker.AsyncUnaryCall(__Method_SayHello, null, options, request);
       }
-      /// <summary>
-      ///  option (google.api.http).get = "/v1/files/{id}";
-      /// </summary>
       public virtual global::Bioskynet.Services.FileBytes GetFile(global::Bioskynet.Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return GetFile(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      /// <summary>
-      ///  option (google.api.http).get = "/v1/files/{id}";
-      /// </summary>
       public virtual global::Bioskynet.Services.FileBytes GetFile(global::Bioskynet.Services.FileMessage request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetFile, null, options, request);
       }
-      /// <summary>
-      ///  option (google.api.http).get = "/v1/files/{id}";
-      /// </summary>
       public virtual AsyncUnaryCall<global::Bioskynet.Services.FileBytes> GetFileAsync(global::Bioskynet.Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return GetFileAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      /// <summary>
-      ///  option (google.api.http).get = "/v1/files/{id}";
-      /// </summary>
       public virtual AsyncUnaryCall<global::Bioskynet.Services.FileBytes> GetFileAsync(global::Bioskynet.Services.FileMessage request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetFile, null, options, request);
@@ -222,6 +220,22 @@ namespace Bioskynet.Services {
       {
         return CallInvoker.AsyncUnaryCall(__Method_DeleteFile, null, options, request);
       }
+      public virtual global::Bioskynet.Services.ExistMessage FileExists(global::Bioskynet.Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return FileExists(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Bioskynet.Services.ExistMessage FileExists(global::Bioskynet.Services.FileMessage request, CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_FileExists, null, options, request);
+      }
+      public virtual AsyncUnaryCall<global::Bioskynet.Services.ExistMessage> FileExistsAsync(global::Bioskynet.Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return FileExistsAsync(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual AsyncUnaryCall<global::Bioskynet.Services.ExistMessage> FileExistsAsync(global::Bioskynet.Services.FileMessage request, CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_FileExists, null, options, request);
+      }
       protected override FileServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
         return new FileServiceClient(configuration);
@@ -236,7 +250,8 @@ namespace Bioskynet.Services {
           .AddMethod(__Method_SayHello, serviceImpl.SayHello)
           .AddMethod(__Method_GetFile, serviceImpl.GetFile)
           .AddMethod(__Method_CreateFile, serviceImpl.CreateFile)
-          .AddMethod(__Method_DeleteFile, serviceImpl.DeleteFile).Build();
+          .AddMethod(__Method_DeleteFile, serviceImpl.DeleteFile)
+          .AddMethod(__Method_FileExists, serviceImpl.FileExists).Build();
     }
 
   }

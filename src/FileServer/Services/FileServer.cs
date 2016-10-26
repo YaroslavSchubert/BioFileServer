@@ -28,12 +28,13 @@ namespace Bioskynet.Services
             //TODO Lock file
             Guid temp;
             if (!Guid.TryParse(file.Id, out temp))
-            {               
-                throw new RpcException(new Status(StatusCode.InvalidArgument,"File ID is invalid"));
+            {
+                throw new RpcException(new Status(StatusCode.InvalidArgument, "File ID is invalid"));
             }
             var filePath = Utils.GetFilePathById(file.Id);
 
-            if(!File.Exists(filePath)){
+            if (!File.Exists(filePath))
+            {
                 throw new RpcException(new Status(StatusCode.NotFound, "File doesn't exist"));
             }
 
@@ -43,6 +44,13 @@ namespace Bioskynet.Services
             };
             return Task.FromResult(fileBytes);
         }
+
+        public override Task<ExistMessage> FileExists(FileMessage msg, ServerCallContext context)
+        {
+            var exist = File.Exists(Utils.GetFilePathById(msg.Id));
+            return Task.FromResult(new ExistMessage() { Result = exist });
+        }
+
         public override Task<EmptyMessage> DeleteFile(FileMessage file, ServerCallContext context)
         {
             Utils.DeleteFile(Utils.GetFilePathById(file.Id));
