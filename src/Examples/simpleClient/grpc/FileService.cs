@@ -7,7 +7,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Bioskynet.Services {
+namespace Services {
 
   /// <summary>Holder for reflection information generated from services/file_service.proto</summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23,32 +23,23 @@ namespace Bioskynet.Services {
     static FileServiceReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChtzZXJ2aWNlcy9maWxlX3NlcnZpY2UucHJvdG8SEkJpb3NreW5ldC5TZXJ2",
-            "aWNlcyIZCgtGaWxlTWVzc2FnZRIKCgJpZBgBIAEoCSIZCglGaWxlQnl0ZXMS",
-            "DAoEZGF0YRgBIAEoDCIcCgxIZWxsb1JlcXVlc3QSDAoEbmFtZRgBIAEoCSId",
-            "CgpIZWxsb1JlcGx5Eg8KB21lc3NhZ2UYASABKAkiDgoMRW1wdHlNZXNzYWdl",
-            "Ih4KDEV4aXN0TWVzc2FnZRIOCgZyZXN1bHQYASABKAgy8wMKC0ZpbGVTZXJ2",
-            "aWNlElEKCUhlYXJ0YmVhdBIgLkJpb3NreW5ldC5TZXJ2aWNlcy5FbXB0eU1l",
-            "c3NhZ2UaIC5CaW9za3luZXQuU2VydmljZXMuRW1wdHlNZXNzYWdlIgASTgoI",
-            "U2F5SGVsbG8SIC5CaW9za3luZXQuU2VydmljZXMuSGVsbG9SZXF1ZXN0Gh4u",
-            "Qmlvc2t5bmV0LlNlcnZpY2VzLkhlbGxvUmVwbHkiABJLCgdHZXRGaWxlEh8u",
-            "Qmlvc2t5bmV0LlNlcnZpY2VzLkZpbGVNZXNzYWdlGh0uQmlvc2t5bmV0LlNl",
-            "cnZpY2VzLkZpbGVCeXRlcyIAEk4KCkNyZWF0ZUZpbGUSHS5CaW9za3luZXQu",
-            "U2VydmljZXMuRmlsZUJ5dGVzGh8uQmlvc2t5bmV0LlNlcnZpY2VzLkZpbGVN",
-            "ZXNzYWdlIgASUQoKRGVsZXRlRmlsZRIfLkJpb3NreW5ldC5TZXJ2aWNlcy5G",
-            "aWxlTWVzc2FnZRogLkJpb3NreW5ldC5TZXJ2aWNlcy5FbXB0eU1lc3NhZ2Ui",
-            "ABJRCgpGaWxlRXhpc3RzEh8uQmlvc2t5bmV0LlNlcnZpY2VzLkZpbGVNZXNz",
-            "YWdlGiAuQmlvc2t5bmV0LlNlcnZpY2VzLkV4aXN0TWVzc2FnZSIAQg8KB2V4",
-            "LmdycGOiAgNSVEdiBnByb3RvMw=="));
+            "ChtzZXJ2aWNlcy9maWxlX3NlcnZpY2UucHJvdG8SCFNlcnZpY2VzGhtnb29n",
+            "bGUvcHJvdG9idWYvZW1wdHkucHJvdG8iGQoLRmlsZU1lc3NhZ2USCgoCaWQY",
+            "ASABKAkiGQoJRmlsZUJ5dGVzEgwKBGRhdGEYASABKAwiHgoMRXhpc3RNZXNz",
+            "YWdlEg4KBnJlc3VsdBgBIAEoCDLwAQoLRmlsZVNlcnZpY2USMwoDR2V0EhUu",
+            "U2VydmljZXMuRmlsZU1lc3NhZ2UaEy5TZXJ2aWNlcy5GaWxlQnl0ZXMiABI2",
+            "CgZDcmVhdGUSEy5TZXJ2aWNlcy5GaWxlQnl0ZXMaFS5TZXJ2aWNlcy5GaWxl",
+            "TWVzc2FnZSIAEjkKBkRlbGV0ZRIVLlNlcnZpY2VzLkZpbGVNZXNzYWdlGhYu",
+            "Z29vZ2xlLnByb3RvYnVmLkVtcHR5IgASOQoGRXhpc3RzEhUuU2VydmljZXMu",
+            "RmlsZU1lc3NhZ2UaFi5TZXJ2aWNlcy5FeGlzdE1lc3NhZ2UiAEJPCgdleC5n",
+            "cnBjWj5naXRodWIuY29tL0VuZWJyYS9TZXJ2aWNlQ29vcmRpbmF0b3IvZ3Jw",
+            "Yy9zZXJ2aWNlcy9maWxlc2VydmljZaICA1JUR2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.FileMessage), global::Bioskynet.Services.FileMessage.Parser, new[]{ "Id" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.FileBytes), global::Bioskynet.Services.FileBytes.Parser, new[]{ "Data" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.HelloRequest), global::Bioskynet.Services.HelloRequest.Parser, new[]{ "Name" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.HelloReply), global::Bioskynet.Services.HelloReply.Parser, new[]{ "Message" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.EmptyMessage), global::Bioskynet.Services.EmptyMessage.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Bioskynet.Services.ExistMessage), global::Bioskynet.Services.ExistMessage.Parser, new[]{ "Result" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.FileMessage), global::Services.FileMessage.Parser, new[]{ "Id" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.FileBytes), global::Services.FileBytes.Parser, new[]{ "Data" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.ExistMessage), global::Services.ExistMessage.Parser, new[]{ "Result" }, null, null, null)
           }));
     }
     #endregion
@@ -61,7 +52,7 @@ namespace Bioskynet.Services {
     public static pb::MessageParser<FileMessage> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Bioskynet.Services.FileServiceReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Services.FileServiceReflection.Descriptor.MessageTypes[0]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -164,7 +155,7 @@ namespace Bioskynet.Services {
     public static pb::MessageParser<FileBytes> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Bioskynet.Services.FileServiceReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Services.FileServiceReflection.Descriptor.MessageTypes[1]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -262,294 +253,12 @@ namespace Bioskynet.Services {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class HelloRequest : pb::IMessage<HelloRequest> {
-    private static readonly pb::MessageParser<HelloRequest> _parser = new pb::MessageParser<HelloRequest>(() => new HelloRequest());
-    public static pb::MessageParser<HelloRequest> Parser { get { return _parser; } }
-
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Bioskynet.Services.FileServiceReflection.Descriptor.MessageTypes[2]; }
-    }
-
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    public HelloRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    public HelloRequest(HelloRequest other) : this() {
-      name_ = other.name_;
-    }
-
-    public HelloRequest Clone() {
-      return new HelloRequest(this);
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
-    private string name_ = "";
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    public override bool Equals(object other) {
-      return Equals(other as HelloRequest);
-    }
-
-    public bool Equals(HelloRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Name != other.Name) return false;
-      return true;
-    }
-
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      return hash;
-    }
-
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Name.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Name);
-      }
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      return size;
-    }
-
-    public void MergeFrom(HelloRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            Name = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class HelloReply : pb::IMessage<HelloReply> {
-    private static readonly pb::MessageParser<HelloReply> _parser = new pb::MessageParser<HelloReply>(() => new HelloReply());
-    public static pb::MessageParser<HelloReply> Parser { get { return _parser; } }
-
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Bioskynet.Services.FileServiceReflection.Descriptor.MessageTypes[3]; }
-    }
-
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    public HelloReply() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    public HelloReply(HelloReply other) : this() {
-      message_ = other.message_;
-    }
-
-    public HelloReply Clone() {
-      return new HelloReply(this);
-    }
-
-    /// <summary>Field number for the "message" field.</summary>
-    public const int MessageFieldNumber = 1;
-    private string message_ = "";
-    public string Message {
-      get { return message_; }
-      set {
-        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    public override bool Equals(object other) {
-      return Equals(other as HelloReply);
-    }
-
-    public bool Equals(HelloReply other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Message != other.Message) return false;
-      return true;
-    }
-
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Message.Length != 0) hash ^= Message.GetHashCode();
-      return hash;
-    }
-
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Message.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Message);
-      }
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      if (Message.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
-      }
-      return size;
-    }
-
-    public void MergeFrom(HelloReply other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Message.Length != 0) {
-        Message = other.Message;
-      }
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 10: {
-            Message = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class EmptyMessage : pb::IMessage<EmptyMessage> {
-    private static readonly pb::MessageParser<EmptyMessage> _parser = new pb::MessageParser<EmptyMessage>(() => new EmptyMessage());
-    public static pb::MessageParser<EmptyMessage> Parser { get { return _parser; } }
-
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Bioskynet.Services.FileServiceReflection.Descriptor.MessageTypes[4]; }
-    }
-
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    public EmptyMessage() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    public EmptyMessage(EmptyMessage other) : this() {
-    }
-
-    public EmptyMessage Clone() {
-      return new EmptyMessage(this);
-    }
-
-    public override bool Equals(object other) {
-      return Equals(other as EmptyMessage);
-    }
-
-    public bool Equals(EmptyMessage other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return true;
-    }
-
-    public override int GetHashCode() {
-      int hash = 1;
-      return hash;
-    }
-
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    public void WriteTo(pb::CodedOutputStream output) {
-    }
-
-    public int CalculateSize() {
-      int size = 0;
-      return size;
-    }
-
-    public void MergeFrom(EmptyMessage other) {
-      if (other == null) {
-        return;
-      }
-    }
-
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-        }
-      }
-    }
-
-  }
-
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class ExistMessage : pb::IMessage<ExistMessage> {
     private static readonly pb::MessageParser<ExistMessage> _parser = new pb::MessageParser<ExistMessage>(() => new ExistMessage());
     public static pb::MessageParser<ExistMessage> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Bioskynet.Services.FileServiceReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Services.FileServiceReflection.Descriptor.MessageTypes[2]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {

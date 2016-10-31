@@ -7,98 +7,69 @@ using System.Threading;
 using System.Threading.Tasks;
 using Grpc.Core;
 
-namespace Bioskynet.Services {
+namespace Services {
   public static class FileService
   {
-    static readonly string __ServiceName = "Bioskynet.Services.FileService";
+    static readonly string __ServiceName = "Services.FileService";
 
-    static readonly Marshaller<global::Bioskynet.Services.EmptyMessage> __Marshaller_EmptyMessage = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Bioskynet.Services.EmptyMessage.Parser.ParseFrom);
-    static readonly Marshaller<global::Bioskynet.Services.HelloRequest> __Marshaller_HelloRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Bioskynet.Services.HelloRequest.Parser.ParseFrom);
-    static readonly Marshaller<global::Bioskynet.Services.HelloReply> __Marshaller_HelloReply = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Bioskynet.Services.HelloReply.Parser.ParseFrom);
-    static readonly Marshaller<global::Bioskynet.Services.FileMessage> __Marshaller_FileMessage = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Bioskynet.Services.FileMessage.Parser.ParseFrom);
-    static readonly Marshaller<global::Bioskynet.Services.FileBytes> __Marshaller_FileBytes = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Bioskynet.Services.FileBytes.Parser.ParseFrom);
-    static readonly Marshaller<global::Bioskynet.Services.ExistMessage> __Marshaller_ExistMessage = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Bioskynet.Services.ExistMessage.Parser.ParseFrom);
+    static readonly Marshaller<global::Services.FileMessage> __Marshaller_FileMessage = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.FileMessage.Parser.ParseFrom);
+    static readonly Marshaller<global::Services.FileBytes> __Marshaller_FileBytes = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.FileBytes.Parser.ParseFrom);
+    static readonly Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_Empty = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
+    static readonly Marshaller<global::Services.ExistMessage> __Marshaller_ExistMessage = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.ExistMessage.Parser.ParseFrom);
 
-    static readonly Method<global::Bioskynet.Services.EmptyMessage, global::Bioskynet.Services.EmptyMessage> __Method_Heartbeat = new Method<global::Bioskynet.Services.EmptyMessage, global::Bioskynet.Services.EmptyMessage>(
+    static readonly Method<global::Services.FileMessage, global::Services.FileBytes> __Method_Get = new Method<global::Services.FileMessage, global::Services.FileBytes>(
         MethodType.Unary,
         __ServiceName,
-        "Heartbeat",
-        __Marshaller_EmptyMessage,
-        __Marshaller_EmptyMessage);
-
-    static readonly Method<global::Bioskynet.Services.HelloRequest, global::Bioskynet.Services.HelloReply> __Method_SayHello = new Method<global::Bioskynet.Services.HelloRequest, global::Bioskynet.Services.HelloReply>(
-        MethodType.Unary,
-        __ServiceName,
-        "SayHello",
-        __Marshaller_HelloRequest,
-        __Marshaller_HelloReply);
-
-    static readonly Method<global::Bioskynet.Services.FileMessage, global::Bioskynet.Services.FileBytes> __Method_GetFile = new Method<global::Bioskynet.Services.FileMessage, global::Bioskynet.Services.FileBytes>(
-        MethodType.Unary,
-        __ServiceName,
-        "GetFile",
+        "Get",
         __Marshaller_FileMessage,
         __Marshaller_FileBytes);
 
-    static readonly Method<global::Bioskynet.Services.FileBytes, global::Bioskynet.Services.FileMessage> __Method_CreateFile = new Method<global::Bioskynet.Services.FileBytes, global::Bioskynet.Services.FileMessage>(
+    static readonly Method<global::Services.FileBytes, global::Services.FileMessage> __Method_Create = new Method<global::Services.FileBytes, global::Services.FileMessage>(
         MethodType.Unary,
         __ServiceName,
-        "CreateFile",
+        "Create",
         __Marshaller_FileBytes,
         __Marshaller_FileMessage);
 
-    static readonly Method<global::Bioskynet.Services.FileMessage, global::Bioskynet.Services.EmptyMessage> __Method_DeleteFile = new Method<global::Bioskynet.Services.FileMessage, global::Bioskynet.Services.EmptyMessage>(
+    static readonly Method<global::Services.FileMessage, global::Google.Protobuf.WellKnownTypes.Empty> __Method_Delete = new Method<global::Services.FileMessage, global::Google.Protobuf.WellKnownTypes.Empty>(
         MethodType.Unary,
         __ServiceName,
-        "DeleteFile",
+        "Delete",
         __Marshaller_FileMessage,
-        __Marshaller_EmptyMessage);
+        __Marshaller_Empty);
 
-    static readonly Method<global::Bioskynet.Services.FileMessage, global::Bioskynet.Services.ExistMessage> __Method_FileExists = new Method<global::Bioskynet.Services.FileMessage, global::Bioskynet.Services.ExistMessage>(
+    static readonly Method<global::Services.FileMessage, global::Services.ExistMessage> __Method_Exists = new Method<global::Services.FileMessage, global::Services.ExistMessage>(
         MethodType.Unary,
         __ServiceName,
-        "FileExists",
+        "Exists",
         __Marshaller_FileMessage,
         __Marshaller_ExistMessage);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Bioskynet.Services.FileServiceReflection.Descriptor.Services[0]; }
+      get { return global::Services.FileServiceReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Base class for server-side implementations of FileService</summary>
     public abstract class FileServiceBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Bioskynet.Services.EmptyMessage> Heartbeat(global::Bioskynet.Services.EmptyMessage request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Services.FileBytes> Get(global::Services.FileMessage request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      /// <summary>
-      ///    option (google.api.http).get = "/v1/hello/{name}";
-      /// </summary>
-      public virtual global::System.Threading.Tasks.Task<global::Bioskynet.Services.HelloReply> SayHello(global::Bioskynet.Services.HelloRequest request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Services.FileMessage> Create(global::Services.FileBytes request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Bioskynet.Services.FileBytes> GetFile(global::Bioskynet.Services.FileMessage request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> Delete(global::Services.FileMessage request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Bioskynet.Services.FileMessage> CreateFile(global::Bioskynet.Services.FileBytes request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Bioskynet.Services.EmptyMessage> DeleteFile(global::Bioskynet.Services.FileMessage request, ServerCallContext context)
-      {
-        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Bioskynet.Services.ExistMessage> FileExists(global::Bioskynet.Services.FileMessage request, ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Services.ExistMessage> Exists(global::Services.FileMessage request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
@@ -128,113 +99,69 @@ namespace Bioskynet.Services {
       {
       }
 
-      public virtual global::Bioskynet.Services.EmptyMessage Heartbeat(global::Bioskynet.Services.EmptyMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::Services.FileBytes Get(global::Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return Heartbeat(request, new CallOptions(headers, deadline, cancellationToken));
+        return Get(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Bioskynet.Services.EmptyMessage Heartbeat(global::Bioskynet.Services.EmptyMessage request, CallOptions options)
+      public virtual global::Services.FileBytes Get(global::Services.FileMessage request, CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_Heartbeat, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_Get, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::Bioskynet.Services.EmptyMessage> HeartbeatAsync(global::Bioskynet.Services.EmptyMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::Services.FileBytes> GetAsync(global::Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return HeartbeatAsync(request, new CallOptions(headers, deadline, cancellationToken));
+        return GetAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::Bioskynet.Services.EmptyMessage> HeartbeatAsync(global::Bioskynet.Services.EmptyMessage request, CallOptions options)
+      public virtual AsyncUnaryCall<global::Services.FileBytes> GetAsync(global::Services.FileMessage request, CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_Heartbeat, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_Get, null, options, request);
       }
-      /// <summary>
-      ///    option (google.api.http).get = "/v1/hello/{name}";
-      /// </summary>
-      public virtual global::Bioskynet.Services.HelloReply SayHello(global::Bioskynet.Services.HelloRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::Services.FileMessage Create(global::Services.FileBytes request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return SayHello(request, new CallOptions(headers, deadline, cancellationToken));
+        return Create(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      /// <summary>
-      ///    option (google.api.http).get = "/v1/hello/{name}";
-      /// </summary>
-      public virtual global::Bioskynet.Services.HelloReply SayHello(global::Bioskynet.Services.HelloRequest request, CallOptions options)
+      public virtual global::Services.FileMessage Create(global::Services.FileBytes request, CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_SayHello, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_Create, null, options, request);
       }
-      /// <summary>
-      ///    option (google.api.http).get = "/v1/hello/{name}";
-      /// </summary>
-      public virtual AsyncUnaryCall<global::Bioskynet.Services.HelloReply> SayHelloAsync(global::Bioskynet.Services.HelloRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::Services.FileMessage> CreateAsync(global::Services.FileBytes request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return SayHelloAsync(request, new CallOptions(headers, deadline, cancellationToken));
+        return CreateAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      /// <summary>
-      ///    option (google.api.http).get = "/v1/hello/{name}";
-      /// </summary>
-      public virtual AsyncUnaryCall<global::Bioskynet.Services.HelloReply> SayHelloAsync(global::Bioskynet.Services.HelloRequest request, CallOptions options)
+      public virtual AsyncUnaryCall<global::Services.FileMessage> CreateAsync(global::Services.FileBytes request, CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_SayHello, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_Create, null, options, request);
       }
-      public virtual global::Bioskynet.Services.FileBytes GetFile(global::Bioskynet.Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty Delete(global::Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return GetFile(request, new CallOptions(headers, deadline, cancellationToken));
+        return Delete(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Bioskynet.Services.FileBytes GetFile(global::Bioskynet.Services.FileMessage request, CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty Delete(global::Services.FileMessage request, CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_GetFile, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_Delete, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::Bioskynet.Services.FileBytes> GetFileAsync(global::Bioskynet.Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteAsync(global::Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return GetFileAsync(request, new CallOptions(headers, deadline, cancellationToken));
+        return DeleteAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::Bioskynet.Services.FileBytes> GetFileAsync(global::Bioskynet.Services.FileMessage request, CallOptions options)
+      public virtual AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> DeleteAsync(global::Services.FileMessage request, CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_GetFile, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_Delete, null, options, request);
       }
-      public virtual global::Bioskynet.Services.FileMessage CreateFile(global::Bioskynet.Services.FileBytes request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual global::Services.ExistMessage Exists(global::Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return CreateFile(request, new CallOptions(headers, deadline, cancellationToken));
+        return Exists(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Bioskynet.Services.FileMessage CreateFile(global::Bioskynet.Services.FileBytes request, CallOptions options)
+      public virtual global::Services.ExistMessage Exists(global::Services.FileMessage request, CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_CreateFile, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_Exists, null, options, request);
       }
-      public virtual AsyncUnaryCall<global::Bioskynet.Services.FileMessage> CreateFileAsync(global::Bioskynet.Services.FileBytes request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      public virtual AsyncUnaryCall<global::Services.ExistMessage> ExistsAsync(global::Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
-        return CreateFileAsync(request, new CallOptions(headers, deadline, cancellationToken));
+        return ExistsAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual AsyncUnaryCall<global::Bioskynet.Services.FileMessage> CreateFileAsync(global::Bioskynet.Services.FileBytes request, CallOptions options)
+      public virtual AsyncUnaryCall<global::Services.ExistMessage> ExistsAsync(global::Services.FileMessage request, CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_CreateFile, null, options, request);
-      }
-      public virtual global::Bioskynet.Services.EmptyMessage DeleteFile(global::Bioskynet.Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return DeleteFile(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Bioskynet.Services.EmptyMessage DeleteFile(global::Bioskynet.Services.FileMessage request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_DeleteFile, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::Bioskynet.Services.EmptyMessage> DeleteFileAsync(global::Bioskynet.Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return DeleteFileAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::Bioskynet.Services.EmptyMessage> DeleteFileAsync(global::Bioskynet.Services.FileMessage request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_DeleteFile, null, options, request);
-      }
-      public virtual global::Bioskynet.Services.ExistMessage FileExists(global::Bioskynet.Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return FileExists(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Bioskynet.Services.ExistMessage FileExists(global::Bioskynet.Services.FileMessage request, CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_FileExists, null, options, request);
-      }
-      public virtual AsyncUnaryCall<global::Bioskynet.Services.ExistMessage> FileExistsAsync(global::Bioskynet.Services.FileMessage request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
-      {
-        return FileExistsAsync(request, new CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual AsyncUnaryCall<global::Bioskynet.Services.ExistMessage> FileExistsAsync(global::Bioskynet.Services.FileMessage request, CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_FileExists, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_Exists, null, options, request);
       }
       protected override FileServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -246,12 +173,10 @@ namespace Bioskynet.Services {
     public static ServerServiceDefinition BindService(FileServiceBase serviceImpl)
     {
       return ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_Heartbeat, serviceImpl.Heartbeat)
-          .AddMethod(__Method_SayHello, serviceImpl.SayHello)
-          .AddMethod(__Method_GetFile, serviceImpl.GetFile)
-          .AddMethod(__Method_CreateFile, serviceImpl.CreateFile)
-          .AddMethod(__Method_DeleteFile, serviceImpl.DeleteFile)
-          .AddMethod(__Method_FileExists, serviceImpl.FileExists).Build();
+          .AddMethod(__Method_Get, serviceImpl.Get)
+          .AddMethod(__Method_Create, serviceImpl.Create)
+          .AddMethod(__Method_Delete, serviceImpl.Delete)
+          .AddMethod(__Method_Exists, serviceImpl.Exists).Build();
     }
 
   }
