@@ -27,5 +27,4 @@ namespace Bioskynet.Services
             Console.WriteLine("FileService stopped...");
         }
     }
-
 }
