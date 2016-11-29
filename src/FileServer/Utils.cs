@@ -1,57 +1,79 @@
 using System;
 using System.IO;
+using NLog;
 
 namespace Bioskynet
 {
     class Utils
     {
-        public static void WriteFileText(string filePath, string message)
-        {
-            var logFile = System.IO.File.OpenWrite(filePath);
-            using (var logWriter = new System.IO.StreamWriter(logFile))
-            {
-                logWriter.WriteLine(message);
-            }
-        }
+        private static ILogger _logger;
 
-        public static void WriteFile(string filePath, byte[] data) => File.WriteAllBytes(filePath, data);
+        static Utils()
+        {
+            _logger = NLog.LogManager.GetCurrentClassLogger();
+        }
+        public static void WriteFile(string filePath, byte[] data)
+        {
+            _logger.Trace($"WriteFile: Path={filePath}, size={data.Length}");
+            File.WriteAllBytes(filePath, data);
+        }
         public static string ReadFileText(string filePath)
         {
+            _logger.Trace($"ReadFileText: Start; path={filePath}");
             string fileContent;
             using (StreamReader reader = File.OpenText(filePath))
             {
                 fileContent = reader.ReadToEnd();
             }
+            _logger.Trace($"ReadFileText: End; path={filePath}");
             return fileContent;
         }
 
-        public static byte[] ReadFile(string filePath) => File.ReadAllBytes(filePath);
+        public static byte[] ReadFile(string filePath)
+        {
+            _logger.Trace($"ReadFile: Start; Path={filePath}");
+            var result = File.ReadAllBytes(filePath);
+            _logger.Trace($"ReadFile: End; Path={filePath}, size={result.Length}");
+            return result;
+        }
 
-        public static void DeleteFile(string filePath) => File.Delete(filePath);
+        public static void DeleteFile(string filePath)
+        {
+            _logger.Trace($"DeleteFile: Path={filePath}");
+            File.Delete(filePath);
+        }
 
         public static string[] GenerateFilePathAndGuid()
         {
+            _logger.Trace($"GenerateFilePathAndGuid: Start");
             string fileName;
             string filePath;
             while (true)
             {
                 fileName = Guid.NewGuid().ToString();
                 filePath = GetFilePathById(fileName);
-                if (!File.Exists(filePath)){
-                    using(File.Create(filePath));
+                _logger.Trace($"GenerateFilePathAndGuid: Generating for name={fileName}, path={filePath}");
+                if (!File.Exists(filePath))
+                {
+                    using (File.Create(filePath)) ;
+                    _logger.Trace($"GenerateFilePathAndGuid: Generated; Name={fileName}, path={filePath}");
                     break;
                 }
             }
+            _logger.Trace($"GenerateFilePathAndGuid: End; Name={fileName}, path={filePath}");
             return new[] { filePath, fileName };
         }
 
         public static string GetFilePathById(string fileId)
         {
+            _logger.Trace($"GetFilePathById: Start; id={fileId}");
             var currentDir = Directory.GetCurrentDirectory();
             var dirPath = Path.Combine(currentDir, "files");
             if (!Directory.Exists(dirPath))
                 Directory.CreateDirectory(dirPath);
-            return System.IO.Path.Combine(dirPath, fileId);
+            var result = System.IO.Path.Combine(dirPath, fileId);
+            _logger.Trace($"GetFilePathById: End; id={fileId}, path={result} ");
+            return result;
         }
 
     }
