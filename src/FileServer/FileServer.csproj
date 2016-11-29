@@ -2,10 +2,11 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
 
   <PropertyGroup>
-    <AssemblyTitle>BioFileServer</AssemblyTitle>
+    <AssemblyTitle>FileServer</AssemblyTitle>
     <AssemblyName>FileServer</AssemblyName>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp1.0</TargetFramework>
+    <RuntimeIdentifiers>win10-x64;win10-x86;ubuntu.14.04-x64</RuntimeIdentifiers>
   </PropertyGroup>
 
   <ItemGroup>
