@@ -32,7 +32,7 @@ namespace Bioskynet.Services
             }
             catch (System.Exception ex)
             {
-                _logger.Error("Create: ", ex);
+                _logger.Error(ex, "Create: ");
                 throw new RpcException(new Status(StatusCode.Internal, "Failed to create file"));
             }
         }
@@ -65,7 +65,7 @@ namespace Bioskynet.Services
             }
             catch (System.Exception ex)
             {
-                _logger.Error("Get: ", ex);
+                _logger.Error(ex, "Get: ");
                 throw new RpcException(new Status(StatusCode.Internal, "Failed to get file"));
             }
         }
@@ -80,7 +80,7 @@ namespace Bioskynet.Services
             }
             catch (System.Exception ex)
             {
-                _logger.Error("Exists: ", ex);
+                _logger.Error(ex, "Exists: ");
                 throw new RpcException(new Status(StatusCode.Internal, "Exists Failed"));
             }
         }
@@ -95,7 +95,7 @@ namespace Bioskynet.Services
             }
             catch (System.Exception ex)
             {
-                _logger.Error("Delete: ", ex);
+                _logger.Error(ex, "Delete: ");
                 throw new RpcException(new Status(StatusCode.Internal, "Delete Failed"));
             }
         }

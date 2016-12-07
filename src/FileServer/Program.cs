@@ -12,8 +12,8 @@ namespace Bioskynet
         {
             _logger = NLog.LogManager.GetCurrentClassLogger();
             fileServiceManager.Start();
-            Console.WriteLine("FileServer started \nPress any key to exit...");
-            Console.ReadKey();
+            Console.WriteLine("FileServer started");
+            Console.ReadLine();
             fileServiceManager.Stop();
         }
     }
